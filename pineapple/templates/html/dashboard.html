@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check</title>
+</head>
+<body>
+<h1>check car</h1>
+
+
+{% if context.insure.insurance_status%}
+ <h1>paid </h1>
+{% else %}
+<h1>not paid </h1>
+{% endif%}
+
+<div class="cars">
+    <h1>List of All Registrered Cars</h1>
+    <table style="width:80%; margin:auto">
+        <thead style="text-align:left;">
+            <th>N0</th>
+            <th>Car PLate Number</th>
+            <th>Insurance</th>
+            <th>Tax</th>
+            <th>Control</th>
+        </thead>
+        <tbody>
+    {% for car in cars%}
+            <tr>
+                    <td>{{loop}}</td>
+                    <td>{{car}}</td>
+                    <td>{{car.insurance.insurance_status}}</td>
+                    <td>{{car.tax.tax_status}}</td>
+                    <td>{{car.control.control_status}}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+</div>
+<hr>
+<div>
+    <form action="">
+        <input type="text" desabled value="{{plate_number}}">
+    </form>
+    <h1>This Plate Number : {{plate_number}}</h1>
+    <ul>
+        <li>Insurance:{{search.insurance.insurance_status}}</li>
+        <li>Tax:{{search.tax.tax_status}}</li>
+        <li>Control:{{search.control.control_status}}</li>
+        <li>phone: {{search.Car_registration.phonenumber}}</li>
+
+    </ul>
+
+    <h2>phone</h2>
+
+    {% for phone in phone_n %}
+
+    {{phone.phonenumber}}
+
+    {% endfor %}
+
+
+
+    <h2>done it afain</h2>
+
+    {{phoneN}}
+
+</div>
+
+
+
+
+</body>
+</html>

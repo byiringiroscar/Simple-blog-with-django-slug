@@ -1,0 +1,10 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+<div class="container">
+    {% for team in team %}
+    <h1><a href="{% url 'bean' %}">{{team.name}}</a> </h1>
+
+    {% endfor %}
+</div>
+{% endblock %}
